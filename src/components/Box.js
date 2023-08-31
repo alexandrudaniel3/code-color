@@ -90,7 +90,7 @@ export default function Box() {
     const [position, setPosition] = useState(10);
     const [background, setBackground] = useState('none')
     const [boldText, setBoldText] = useState(false);
-
+    const [textSize, setTextSize] = useState(10);
 
     useEffect(() => {
         setOutput(highlightCode(input, selectedColor, lightMode, boldText));
@@ -125,53 +125,77 @@ export default function Box() {
             </div>
             <div className='main'>
                 <div className='banner'>
-                    Width:
-                    <InputSlider
-                        axis="x" x={width} xmax={1000} xmin={100}
-                        onChange={({x}) => setWidth(state => (x))}
-                        styles={{
-                            track: {
-                                margin: "10px"
-                            }
-                        }}
-                    />
-                    Height:
-                    <InputSlider
-                        axis="x" x={height} xmax={1000} xmin={100}
-                        onChange={({x}) => setHeight(state => (x))}
-                        styles={{
-                            track: {
-                                margin: "10px"
-                            }
-                        }}
-                    />
-                    Padding:
-                    <InputSlider
-                        axis="x" x={padding} xmax={300} xmin={0}
-                        onChange={({x}) => setPadding(state => (x))}
-                        styles={{
-                            track: {
-                                margin: "10px"
-                            }
-                        }}
-                    />
-                    Position:
-                    <InputSlider
-                        axis="x" x={position} xmax={300} xmin={0}
-                        onChange={({x}) => setPosition(state => (x))}
-                        styles={{
-                            track: {
-                                margin: "10px"
-                            }
-                        }}
-                    />
+                    <div className='banner-1'>
+                        Width:
+                        <InputSlider
+                            axis="x" x={width} xmax={1000} xmin={100}
+                            onChange={({x}) => setWidth(state => (x))}
+                            styles={{
+                                track: {
+                                    margin: "10px"
+                                }
+                            }}
+                        />
+                        <input type="number" min="100" max="1000" step="1" value={width} onChange={e => setWidth(e.target.value)}/>
+
+                        Height:
+                        <InputSlider
+                            axis="x" x={height} xmax={1000} xmin={100}
+                            onChange={({x}) => setHeight(state => (x))}
+                            styles={{
+                                track: {
+                                    margin: "10px"
+                                }
+                            }}
+                        />
+                        <input type="number" min="100" max="1000" step="1" value={height} onChange={e => setHeight(e.target.value)}/>
+
+                        Padding:
+                        <InputSlider
+                            axis="x" x={padding} xmax={1000} xmin={100}
+                            onChange={({x}) => setPadding(state => (x))}
+                            styles={{
+                                track: {
+                                    margin: "10px"
+                                }
+                            }}
+                        />
+                        <input type="number" min="100" max="1000" step="1" value={padding} onChange={e => setPadding(e.target.value)}/>
+
+                    </div>
+                    <div className='banner-2'>
+                        Position:
+                        <InputSlider
+                            axis="x" x={position} xmax={1000} xmin={10}
+                            onChange={({x}) => setPosition(state => (x))}
+                            styles={{
+                                track: {
+                                    margin: "10px"
+                                }
+                            }}
+                        />
+                        <input type="number" min="10" max="1000" step="1" value={position} onChange={e => setPosition(e.target.value)}/>
+
+                        Text Size:
+                        <InputSlider
+                            axis="x" x={textSize} xmax={100} xmin={10}
+                            onChange={({x}) => setTextSize(state => (x))}
+                            styles={{
+                                track: {
+                                    margin: "10px"
+                                }
+                            }}
+                        />
+                        <input type="number" min="10" max="100" step="1" value={textSize} onChange={e => setTextSize(e.target.value)}/>
+
+                    </div>
                 </div>
                 <div className='background' style={{background: background, padding: position, width: "fit-content"}}>
                     {selectedWindow === 'mac' ?
-                        <MacWindow output={output} width={width} height={height} lightMode={lightMode} header={''} padding={padding} boldText={boldText}/> :
+                        <MacWindow textSize={textSize} output={output} width={width} height={height} lightMode={lightMode} header={''} padding={padding} boldText={boldText}/> :
                         selectedWindow === 'windows' ?
-                        <WindowsWindow output={output} width={width} height={height} lightMode={lightMode} header={''} padding={padding} boldText={boldText}/> :
-                            <ModernWindow output={output} width={width} height={height} lightMode={lightMode} header={''} padding={padding} boldText={boldText}/>}
+                        <WindowsWindow textSize={textSize} output={output} width={width} height={height} lightMode={lightMode} header={''} padding={padding} boldText={boldText}/> :
+                            <ModernWindow textSize={textSize} output={output} width={width} height={height} lightMode={lightMode} header={''} padding={padding} boldText={boldText}/>}
                 </div>
             </div>
 

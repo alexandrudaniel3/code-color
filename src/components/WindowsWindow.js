@@ -1,8 +1,9 @@
 import './styles/WindowsWindow.css';
 
-export default function WindowsWindow({width, height, padding, header, output, lightMode, boldText}) {
+export default function WindowsWindow({textSize, width, height, padding, header, output, lightMode, boldText}) {
     let theme = (lightMode === true) ? "light" : "dark";
     let bold = (boldText === true) ? 'bold' : '';
+    textSize = (!textSize ? 'normal' : textSize + 'px' );
 
     return (
         <div className={"windows-window " + theme} style={{width: width, height: height}}>
@@ -14,7 +15,7 @@ export default function WindowsWindow({width, height, padding, header, output, l
                     <div className={"windows-close " + theme}></div>
                 </div>
             </div>
-            <div className={"windows-content " + theme} style={{padding: padding}}>
+            <div className={"windows-content " + theme} style={{padding: padding, fontSize: textSize}}>
                 <pre id="output" dangerouslySetInnerHTML={{__html: output}} className={theme + " "+ bold}></pre>
             </div>
         </div>

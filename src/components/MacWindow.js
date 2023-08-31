@@ -1,8 +1,9 @@
 import './styles/MacWindow.css';
 
-export default function MacWindow({width, height, padding, header, output, lightMode, boldText}) {
+export default function MacWindow({textSize, width, height, padding, header, output, lightMode, boldText}) {
     let theme = (lightMode === true) ? "light" : "dark";
     let bold = (boldText === true) ? 'bold' : '';
+    textSize = (!textSize ? 'normal' : textSize + 'px' );
 
     return (
         <div className={"mac-window " + theme} style={{width: width, height: height}}>
@@ -14,7 +15,7 @@ export default function MacWindow({width, height, padding, header, output, light
                 </div>
                 <div className={"mac-title " + theme}>{header}</div>
             </div>
-            <div className={"mac-content " + theme} style={{padding: padding}}>
+            <div className={"mac-content " + theme} style={{padding: padding, fontSize: textSize}}>
                 <pre id="output" dangerouslySetInnerHTML={{__html: output}} className={theme + ' ' + bold}></pre>
             </div>
         </div>
