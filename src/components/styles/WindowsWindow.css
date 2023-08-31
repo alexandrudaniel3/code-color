@@ -1,0 +1,82 @@
+.windows-window {
+    width: 400px;
+    height: 300px;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.windows-window.light {
+    background-color: #ffffff;
+}
+
+.windows-window.dark {
+    background-color: #2b2b2b;
+}
+
+.windows-title-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 10px;
+}
+
+.windows-title-bar.light {
+    background-color: #0078d7;
+    color: #ffffff;
+}
+
+.windows-title-bar.dark {
+    background-color: #2b2b2b;
+    border-bottom: 2px solid #4c4c4d;
+    color: #ffffff;
+}
+
+.windows-title-bar{
+    display: flex;
+    gap: 5px;
+}
+
+.windows-title {
+    font-weight: bold;
+}
+
+.windows-window-controls {
+    display: flex;
+}
+
+.windows-close,
+.windows-minimize,
+.windows-maximize {
+    width: 12px;
+    height: 12px;
+    margin-left: 6px;
+}
+
+/*.windows-minimize {*/
+/*    background-color: #ffaa00;*/
+/*}*/
+
+/*.windows-maximize {*/
+/*    background-color: #00aa00;*/
+/*}*/
+
+/*.windows-close {*/
+/*    background-color: #ff5555;*/
+/*}*/
+
+.windows-close.light,
+.windows-minimize.light,
+.windows-maximize.light {
+    background-color: #ffffff;
+}
+
+.windows-close.dark,
+.windows-minimize.dark,
+.windows-maximize.dark {
+    background-color: #bdbdbd;
+}
+
+.windows-content {
+    overflow: hidden;
+}

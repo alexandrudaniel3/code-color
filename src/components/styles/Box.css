@@ -1,0 +1,42 @@
+#output {
+    margin: 0;
+    padding: 0;
+    font-family: monospace;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.dark {
+    color: white;
+}
+
+.box {
+    display: flex;
+    flex-direction: row;
+}
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+}
+
+.banner {
+    display: flex;
+    align-items: center;
+    height: fit-content;
+    margin-bottom: 5px;
+    margin-left: 5px;
+}
+
+.circle-picker span div span div[title~="#ffffff"] {
+    border: 1px solid #999;
+}
+

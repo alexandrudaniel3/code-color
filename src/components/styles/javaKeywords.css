@@ -1,0 +1,179 @@
+.accessModifiers {
+    color: red;
+}
+
+.variableDeclaration {
+    color: blue;
+}
+
+.number {
+    color: orangered;
+}
+
+.string {
+    color: green;
+}
+
+.objects {
+    color: darkgoldenrod;
+}
+
+.others {
+    color: red;
+}
+
+.character {
+    color: yellowgreen;
+}
+
+.comments {
+    color: gray;
+}
+
+/* xcode light */
+
+pre.light {
+    color: #000000
+}
+.accessModifiers.xcode.light {
+    color: #96248e;
+}
+
+.variableDeclaration.xcode.light {
+    color: #96248e;
+}
+
+.number.xcode.light {
+    color: #1d02c6;
+}
+
+.string.xcode.light {
+    color: #bc1d19;
+}
+
+.objects.xcode.light {
+    color: #0e4d75;
+}
+
+.others.xcode.light {
+    color: #96248e;
+}
+
+.character.xcode.light {
+    color: #bc1d19;
+}
+
+.comments.xcode.light {
+    color: gray;
+}
+
+/* xcode dark */
+
+pre.dark {
+    color: #f4f4f5
+}
+.accessModifiers.xcode.dark {
+    color: #f15d9d;
+}
+
+.variableDeclaration.xcode.dark {
+    color: #f15d9d;
+}
+
+.number.xcode.dark {
+    color: #c8b866;
+}
+
+.string.xcode.dark {
+    color: #f1675b;
+}
+
+.objects.xcode.dark {
+    color: #5bd0f5;
+}
+
+.others.xcode.dark {
+    color: #f15d9d;
+}
+
+.character.xcode.dark {
+    color: #f1675b;
+}
+
+.comments.xcode.dark {
+    color: #697582;
+}
+
+/* intellij idea light */
+
+pre.light {
+    color: #000000
+}
+.accessModifiers.intellij.light {
+    color: #0333ad;
+}
+
+.variableDeclaration.intellij.light {
+    color: #0333ad;
+}
+
+.number.intellij.light {
+    color: #184ee1;
+}
+
+.string.intellij.light {
+    color: #0c791a;
+}
+
+.objects.intellij.light {
+    color: #020202;
+}
+
+.others.intellij.light {
+    color: #0333ad;
+}
+
+.character.intellij.light {
+    color: #0c791a;
+}
+
+.comments.intellij.light {
+    color: #878787;
+}
+
+/* intellij idea dark (dracula) */
+
+pre.dark {
+    color: #ffffff
+}
+.accessModifiers.intellij.dark {
+    color: #c37432;
+}
+
+.variableDeclaration.intellij.dark {
+    color: #c37432;
+}
+
+.number.intellij.dark {
+    color: #6492b4;
+}
+
+.string.intellij.dark {
+    color: #688258;
+}
+
+.objects.intellij.dark {
+    color: #a2b0be;
+}
+
+.others.intellij.dark {
+    color: #c37432;
+}
+
+.character.intellij.dark {
+    color: #688258;
+}
+
+.comments.intellij.dark {
+    color: #a2b0be;
+}

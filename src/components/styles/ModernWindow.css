@@ -1,0 +1,73 @@
+.modern-window {
+    width: 400px;
+    height: 300px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    background: #f8f8f8;
+}
+
+.modern-title-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 14px;
+    background-color: #f8f8f8;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.modern-title {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+
+.modern-window-controls {
+    display: flex;
+    gap: 8px;
+}
+
+.modern-control {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background-color: rgba(100, 100, 100, 0.5);
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.modern-control:hover {
+    background-color: rgba(100, 100, 100, 0.7);
+}
+
+.modern-content {
+    padding: 14px;
+    color: #444;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* Dark theme */
+.modern-window.dark {
+    background: #292a2f;
+}
+
+.modern-title-bar.dark {
+    background-color: #343338;
+}
+
+.modern-title.dark {
+    color: #f8f8f8;
+}
+
+.modern-control.dark {
+    background-color: rgba(200, 200, 200, 0.3);
+}
+
+.modern-control.dark:hover {
+    background-color: rgba(200, 200, 200, 0.5);
+}
+
+.modern-content.dark {
+    color: #ccc;
+}
