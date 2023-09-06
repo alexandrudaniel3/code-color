@@ -1,6 +1,6 @@
 import './styles/javaKeywords.css';
 import './styles/Box.css';
-import {useEffect, useState} from "react";
+import {useEffect, useRef, useState} from "react";
 import InputSlider from "react-input-slider";
 import MacWindow from "./MacWindow";
 import WindowsWindow from "./WindowsWindow";
@@ -9,6 +9,7 @@ import 'react-dropdown/style.css';
 import ReactSwitch from "react-switch";
 import {CirclePicker} from "react-color";
 import ModernWindow from "./ModernWindow";
+import {toPng} from "html-to-image";
 
 
 const keywords = {
@@ -91,10 +92,24 @@ export default function Box() {
     const [background, setBackground] = useState('none')
     const [boldText, setBoldText] = useState(false);
     const [textSize, setTextSize] = useState(10);
+    const boxRef = useRef(null);
 
     useEffect(() => {
         setOutput(highlightCode(input, selectedColor, lightMode, boldText));
     }, [input, selectedColor, lightMode]);
+
+    const exportBox = () => {
+        toPng(boxRef.current, {cacheBust: false})
+            .then((dataUrl) => {
+                const link = document.createElement("a");
+                link.download = "code.png";
+                link.href = dataUrl;
+                link.click();
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    };
 
     return (
         <div className='box'>
@@ -121,6 +136,7 @@ export default function Box() {
                 <ReactSwitch checked={boldText} onChange={setBoldText} checkedIcon={false} uncheckedIcon={false}/>
                 Background: <button type={'button'} onClick={() => setBackground('none')}>none</button>
                 <CirclePicker colors={backgroundColors} onChange={(color) => setBackground(color.hex)} styles={{}}/>
+                <button onClick={exportBox}>Export</button>
 
             </div>
             <div className='main'>
@@ -152,7 +168,7 @@ export default function Box() {
 
                         Padding:
                         <InputSlider
-                            axis="x" x={padding} xmax={1000} xmin={100}
+                            axis="x" x={padding} xmax={500} xmin={10}
                             onChange={({x}) => setPadding(state => (x))}
                             styles={{
                                 track: {
@@ -160,7 +176,7 @@ export default function Box() {
                                 }
                             }}
                         />
-                        <input type="number" min="100" max="1000" step="1" value={padding} onChange={e => setPadding(e.target.value)}/>
+                        <input type="number" min="10" max="500" step="1" value={padding} onChange={e => setPadding(e.target.value)}/>
 
                     </div>
                     <div className='banner-2'>
@@ -190,7 +206,7 @@ export default function Box() {
 
                     </div>
                 </div>
-                <div className='background' style={{background: background, padding: position, width: "fit-content"}}>
+                <div ref={boxRef} className='background' style={{background: background, padding: position, width: "fit-content"}}>
                     {selectedWindow === 'mac' ?
                         <MacWindow textSize={textSize} output={output} width={width} height={height} lightMode={lightMode} header={''} padding={padding} boldText={boldText}/> :
                         selectedWindow === 'windows' ?
