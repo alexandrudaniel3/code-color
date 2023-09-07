@@ -114,7 +114,7 @@ export default function Box() {
     return (
         <div className='box'>
             <div className='sidebar'>
-                Your code:
+                <p>Your code:</p>
                 <textarea
                     style={{
                         width: '200px',
@@ -126,18 +126,26 @@ export default function Box() {
                     cols='50'
                     value={input}
                     onChange={(event) => setInput(event.target.value)}/>
-                Window Theme:
+                <p>Window Theme:</p>
                 <ReactDropdown options={windows} placeholder={'macOS'} onChange={(option) => setSelectedWindow(option.value)}/>
-                Color Theme:
+                <p>Color Theme:</p>
                 <ReactDropdown options={colors} placeholder={'Xcode'} onChange={(option) => setSelectedColor(option.value)}/>
-                Light Mode:
-                <ReactSwitch checked={lightMode} onChange={setLightMode} checkedIcon={false} uncheckedIcon={false}/>
-                Bold Text:
-                <ReactSwitch checked={boldText} onChange={setBoldText} checkedIcon={false} uncheckedIcon={false}/>
-                Background: <button type={'button'} onClick={() => setBackground('none')}>none</button>
-                <CirclePicker colors={backgroundColors} onChange={(color) => setBackground(color.hex)} styles={{}}/>
-                <button onClick={exportBox}>Export</button>
-
+                <div className='sidebar-switch'>
+                    <p>Light Mode: &nbsp;</p>
+                    <ReactSwitch checked={lightMode} onChange={setLightMode} checkedIcon={false} uncheckedIcon={false} onColor="#7fc8f8"/>
+                </div>
+                <div className='sidebar-switch'>
+                    <p>Bold Text: &nbsp;</p>
+                    <ReactSwitch checked={boldText} onChange={setBoldText} checkedIcon={false} uncheckedIcon={false} onColor="#7fc8f8"/>
+                </div>
+                <div className='sidebar-color-picker'>
+                    <div className='sidebar-color-picker-header'>
+                        <p>Background:</p>
+                        <button type={'button'} onClick={() => setBackground('none')}>none</button>
+                    </div>
+                    <CirclePicker colors={backgroundColors} onChange={(color) => setBackground(color.hex)} styles={{}}/>
+                </div>
+                    <button className='sidebar-export-button' onClick={exportBox}>Export</button>
             </div>
             <div className='main'>
                 <div className='banner'>
@@ -148,8 +156,11 @@ export default function Box() {
                             onChange={({x}) => setWidth(state => (x))}
                             styles={{
                                 track: {
-                                    margin: "10px"
-                                }
+                                    margin: "10px",
+                                },
+                                active: {
+                                    backgroundColor : "#7fc8f8",
+                                },
                             }}
                         />
                         <input type="number" min="100" max="1000" step="1" value={width} onChange={e => setWidth(e.target.value)}/>
@@ -160,8 +171,11 @@ export default function Box() {
                             onChange={({x}) => setHeight(state => (x))}
                             styles={{
                                 track: {
-                                    margin: "10px"
-                                }
+                                    margin: "10px",
+                                },
+                                active: {
+                                    backgroundColor : "#7fc8f8",
+                                },
                             }}
                         />
                         <input type="number" min="100" max="1000" step="1" value={height} onChange={e => setHeight(e.target.value)}/>
@@ -172,8 +186,11 @@ export default function Box() {
                             onChange={({x}) => setPadding(state => (x))}
                             styles={{
                                 track: {
-                                    margin: "10px"
-                                }
+                                    margin: "10px",
+                                },
+                                active: {
+                                    backgroundColor : "#7fc8f8",
+                                },
                             }}
                         />
                         <input type="number" min="10" max="500" step="1" value={padding} onChange={e => setPadding(e.target.value)}/>
@@ -186,8 +203,11 @@ export default function Box() {
                             onChange={({x}) => setPosition(state => (x))}
                             styles={{
                                 track: {
-                                    margin: "10px"
-                                }
+                                    margin: "10px",
+                                },
+                                active: {
+                                    backgroundColor : "#7fc8f8",
+                                },
                             }}
                         />
                         <input type="number" min="10" max="1000" step="1" value={position} onChange={e => setPosition(e.target.value)}/>
@@ -198,20 +218,25 @@ export default function Box() {
                             onChange={({x}) => setTextSize(state => (x))}
                             styles={{
                                 track: {
-                                    margin: "10px"
-                                }
+                                    margin: "10px",
+                                },
+                                active: {
+                                    backgroundColor : "#7fc8f8",
+                                },
                             }}
                         />
                         <input type="number" min="10" max="100" step="1" value={textSize} onChange={e => setTextSize(e.target.value)}/>
 
                     </div>
                 </div>
-                <div ref={boxRef} className='background' style={{background: background, padding: position, width: "fit-content"}}>
-                    {selectedWindow === 'mac' ?
-                        <MacWindow textSize={textSize} output={output} width={width} height={height} lightMode={lightMode} header={''} padding={padding} boldText={boldText}/> :
-                        selectedWindow === 'windows' ?
-                        <WindowsWindow textSize={textSize} output={output} width={width} height={height} lightMode={lightMode} header={''} padding={padding} boldText={boldText}/> :
-                            <ModernWindow textSize={textSize} output={output} width={width} height={height} lightMode={lightMode} header={''} padding={padding} boldText={boldText}/>}
+                <div id="export-box">
+                    <div ref={boxRef} className='background' style={{background: background, padding: position, width: "fit-content"}}>
+                        {selectedWindow === 'mac' ?
+                            <MacWindow textSize={textSize} output={output} width={width} height={height} lightMode={lightMode} header={''} padding={padding} boldText={boldText}/> :
+                            selectedWindow === 'windows' ?
+                            <WindowsWindow textSize={textSize} output={output} width={width} height={height} lightMode={lightMode} header={''} padding={padding} boldText={boldText}/> :
+                                <ModernWindow textSize={textSize} output={output} width={width} height={height} lightMode={lightMode} header={''} padding={padding} boldText={boldText}/>}
+                    </div>
                 </div>
             </div>
 

@@ -15,12 +15,50 @@
 .box {
     display: flex;
     flex-direction: row;
+    height: 100vh;
 }
 
 .sidebar {
     display: flex;
     flex-direction: column;
     padding: 15px;
+    background: #f9f9f9;
+}
+
+.sidebar-switch {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.sidebar-color-picker {
+}
+
+.sidebar-color-picker-header {
+    display: flex;
+    align-items: center;
+}
+
+.sidebar-color-picker-header > button {
+    margin-left: 10px;
+}
+
+.sidebar-export-button {
+    margin: 10px auto;
+    width: fit-content;
+    font-size: 20px;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    background: #7fc8f8;
+    color: white;
+    transition: transform 0.2s ease;
+}
+
+.sidebar-export-button:hover {
+    cursor: pointer;
+    transform: scale(1.1);
 }
 
 .main {
